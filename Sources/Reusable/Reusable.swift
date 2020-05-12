@@ -49,7 +49,7 @@ extension Reusable where Self: UITableViewCell {
     /// Registers a reusable cell class with a table view.
     ///
     /// - Parameter tableView: The table view to register the cell class with.
-    static func registerReusableCell(forTableView tableView: UITableView) {
+    static func registerReusableCell(for tableView: UITableView) {
         tableView.register(self, forCellReuseIdentifier: Self.reusableIdentifier)
     }
     
@@ -58,7 +58,7 @@ extension Reusable where Self: UITableViewCell {
     /// - parameter tableView: The table view to dequeue the cell from.
     /// - parameter indexPath: The index path to associate with the dequeued cell.
     /// - returns: A reusable table view cell.
-    static func dequeueReusableCell(forTableView tableView: UITableView, atIndexPath indexPath: IndexPath) -> Self {
+    static func dequeueReusableCell(for tableView: UITableView, at indexPath: IndexPath) -> Self {
         return tableView.dequeueReusableCell(withIdentifier: Self.reusableIdentifier, for: indexPath) as! Self
     }
 }
@@ -69,7 +69,7 @@ extension Reusable where Self: UITableViewHeaderFooterView {
     /// Registers a reusable header/footer view with a table view.
     ///
     /// - parameter tableView: The table view to register the view class with.
-    static func registerReusableView(forTableView tableView: UITableView) {
+    static func registerReusableView(for tableView: UITableView) {
         tableView.register(self, forHeaderFooterViewReuseIdentifier: Self.reusableIdentifier)
     }
     
@@ -77,7 +77,7 @@ extension Reusable where Self: UITableViewHeaderFooterView {
     ///
     /// - parameter tableView: The table view to dequeue the view from.
     /// - returns: A reusable table view header/footer view.
-    static func dequeueReusableView(forTableView tableView: UITableView) -> Self {
+    static func dequeueReusableView(for tableView: UITableView) -> Self {
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.reusableIdentifier) as! Self
     }
 }
@@ -88,7 +88,7 @@ extension Reusable where Self: UICollectionViewCell {
     /// Registers a reusable cell class with a collection view.
     ///
     /// - parameter collectionView: The collection view to register the cell class with.
-    static func registerReusableCell(forCollectionView collectionView: UICollectionView) {
+    static func registerReusableCell(for collectionView: UICollectionView) {
         collectionView.register(self, forCellWithReuseIdentifier: Self.reusableIdentifier)
     }
     
@@ -97,7 +97,7 @@ extension Reusable where Self: UICollectionViewCell {
     /// - parameter collectionView: The collection view to dequeue the cell from.
     /// - parameter indexPath: The index path to associate with the dequeued cell.
     /// - returns: A reusable collection view cell.
-    static func dequeueReusableCell(forCollectionView collectionView: UICollectionView, atIndexPath indexPath: IndexPath) -> Self {
+    static func dequeueReusableCell(for collectionView: UICollectionView, at indexPath: IndexPath) -> Self {
         return collectionView.dequeueReusableCell(withReuseIdentifier: Self.reusableIdentifier, for: indexPath) as! Self
     }
 }
@@ -109,7 +109,7 @@ extension Reusable where Self: UICollectionReusableView {
     ///
     /// - parameter collectionView: The collection view to register the supplementary view class with.
     /// - parameter elementKind: The kind of element that this view represents.
-    static func registerReusableSupplementaryView(forCollectionView collectionView: UICollectionView, ofElementKind elementKind: String) {
+    static func registerReusableSupplementaryView(for collectionView: UICollectionView, ofKind elementKind: String) {
         collectionView.register(self, forSupplementaryViewOfKind: elementKind, withReuseIdentifier: Self.reusableIdentifier)
     }
     
@@ -119,16 +119,16 @@ extension Reusable where Self: UICollectionReusableView {
     /// - parameter elementKind: The kind of element that this view represents.
     /// - parameter indexPath: The index path to associate with the supplementary view.
     /// - returns: A reusable supplementary view.
-    static func dequeueReusableSupplementaryView(forCollectionView collectionView: UICollectionView, ofElementKind elementKind: String, atIndexPath indexPath: IndexPath) -> Self {
+    static func dequeueReusableSupplementaryView(for collectionView: UICollectionView, ofKind elementKind: String, at indexPath: IndexPath) -> Self {
         return collectionView.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: Self.reusableIdentifier, for: indexPath) as! Self
     }
     
     /// Registers a reusable decoration view class with a collection view.
     ///
-    /// - parameter collectionView: The collection view to register the decoration view class with.
+    /// - parameter collectionViewLayout: The collection view layout to register the decoration view class with.
     /// - parameter elementKind: The kind of element that this view represents.
-    static func registerReusableDecorationView(forCollectionView collectionView: UICollectionView, ofElementKind elementKind: String) {
-        collectionView.register(self, forDecorationViewOfKind: elementKind)
+    static func registerReusableDecorationView(for collectionViewLayout: UICollectionViewLayout, ofKind elementKind: String) {
+        collectionViewLayout.register(self, forDecorationViewOfKind: elementKind)
     }
 }
 
