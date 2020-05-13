@@ -2,14 +2,38 @@ import XCTest
 @testable import Reusable
 
 final class ReusableTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Reusable().text, "Hello, World!")
+    func testDefaultReusableIdentifier() {
+        struct ReusableItem: Reusable { }
+        
+        XCTAssertEqual(ReusableItem.reusableIdentifier, "ReusableItem")
+    }
+    
+    func testDefaultNibInstantiable() {
+        class NibInstantiableItem: NibInstantiable {
+            static func fromNib(withOwner owner: Any?) -> NibInstantiableItem? {
+                return nil
+            }
+        }
+        
+        XCTAssertEqual(NibInstantiableItem.nibName, "NibInstantiableItem")
+        XCTAssertNil(NibInstantiableItem.nibBundle)
+    }
+    
+    func testDefaultNibReusable() {
+        class NibReusableItem: NibReusable {
+            static func fromNib(withOwner owner: Any?) -> NibReusableItem? {
+                return nil
+            }
+        }
+        
+        XCTAssertEqual(NibReusableItem.reusableIdentifier, "NibReusableItem")
+        XCTAssertEqual(NibReusableItem.nibName, "NibReusableItem")
+        XCTAssertNil(NibReusableItem.nibBundle)
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testDefaultReusableIdentifier", testDefaultReusableIdentifier),
+        ("testDefaultNibInstantiable", testDefaultNibInstantiable),
+        ("testDefaultNibReusable", testDefaultNibReusable)
     ]
 }
