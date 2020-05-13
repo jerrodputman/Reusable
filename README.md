@@ -1,4 +1,5 @@
 # Reusable
+![Swift](https://github.com/jerrodputman/Reusable/workflows/Swift/badge.svg)
 
 Provides a more type-safe way of registering and dequeuing table/collection view cells.
 
